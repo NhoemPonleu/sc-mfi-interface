@@ -206,8 +206,8 @@ export default function UserView() {
 
   const loadUser = async () => {
     const result = await axios.get(
-     //  `https://sc-mfi.onrender.com/api/v1/customers/${id}`
-     `http://localhost:8080/api/v1/customers/${id}`
+       `https://sc-mfi.onrender.com/api/v1/customers/${id}`
+     //`http://localhost:8080/api/v1/customers/${id}`
     );
     setUser(result.data);
   };
