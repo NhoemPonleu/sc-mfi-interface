@@ -1,34 +1,15 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { Link, useParams } from "react-router-dom";
+import UserService from "../components/service/Userservice";
 
-export default function Home() {
+const Home = () => {
   const [users, setUsers] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [usersPerPage] = useState(10);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
-  useEffect(() => {
-    loadUsers();
-  }, []);
-
-  useEffect(() => {
-    searchUsers();
-  }, [searchQuery]);
-
-  const { id } = useParams();
-
-  const loadUsers = async () => {
-    try {
-    // const result = await axios.get("https://sc-mfi.onrender.com/api/v1/customers");
-   //  const result = await axios.get("http://localhost:8080/api/v1/customers");
-    const response = await axios.get("https://sc-mfi.onrender.com/api/v1/customers");
-      setUsers(response.data);
-    } catch (error) {
-      console.error("Error loading users:", error);
-    }
-  };
+  const { id } = useParams(); // Assuming you may use this later
 
   const searchUsers = () => {
     const results = users.filter((user) =>
@@ -37,6 +18,29 @@ export default function Home() {
     setSearchResults(results);
     setCurrentPage(1);
   };
+
+  useEffect(() => {
+    const loadUsers = async () => {
+      try {
+        const token = localStorage.getItem('token');
+        const response = await UserService.getAllCustomer(token);
+        if (response && response.data) {
+          setUsers(response.data); // Assuming response structure is { data: [...] }
+        }
+      } catch (error) {
+        console.error("Error loading users:", error);
+      }
+    };
+
+    loadUsers();
+  }, []);
+
+  useEffect(() => {
+    // Ensure searchUsers is defined before it's used in useEffect dependency array
+    if (searchQuery) {
+      searchUsers();
+    }
+  }, [searchQuery, users]); // Add users to the dependency array
 
   const handleDownload = () => {
     let dataToDownload = [];
@@ -73,6 +77,7 @@ export default function Home() {
     setCurrentPage(pageNumber);
   };
 
+  // Ensure renderUsers has a fallback in case users is not defined yet
   const renderUsers = searchQuery ? searchResults : users.slice((currentPage - 1) * usersPerPage, currentPage * usersPerPage);
 
   return (
@@ -158,4 +163,6 @@ export default function Home() {
       </div>
     </div>
   );
-}
+};
+
+export default Home;
