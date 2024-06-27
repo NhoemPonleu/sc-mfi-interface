@@ -1,7 +1,8 @@
 import axios from "axios";
 
 class UserService {
-  static BASE_URL = "https://sc-mfi.onrender.com";
+   static BASE_URL = "https://sc-mfi.onrender.com";
+ // static BASE_URL = "http://localhost:1010";
 
   static async login(email, password) {
     try {
@@ -35,6 +36,18 @@ class UserService {
       const response = await axios.get(`${UserService.BASE_URL}/admin/get-all-users`, {
         headers: { Authorization: `Bearer ${token}` },
       });
+      return response.data;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  static async getAllCustomer(token) {
+    try {
+      const response = await axios.get(`${UserService.BASE_URL}/api/v1/customers`, 
+    {
+        headers: { Authorization: `Bearer ${token}`}
+      })
       return response.data;
     } catch (err) {
       throw err;
@@ -93,17 +106,6 @@ class UserService {
   static isAuthenticated() {
     const token = localStorage.getItem("token");
     return !!token;
-  }
-
-  static async getAllCustomer(token) {
-    try {
-      const response = await axios.get(`${UserService.BASE_URL}/api/v1/customers`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      return response.data;
-    } catch (err) {
-      throw err;
-    }
   }
 
   static isAdmin() {

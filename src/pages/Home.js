@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import UserService from "../components/service/Userservice";
 
 const Home = () => {
@@ -8,8 +8,6 @@ const Home = () => {
   const [usersPerPage] = useState(10);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-
-  const { id } = useParams(); // Assuming you may use this later
 
   const searchUsers = () => {
     const results = users.filter((user) =>
@@ -22,10 +20,17 @@ const Home = () => {
   useEffect(() => {
     const loadUsers = async () => {
       try {
-        const token = localStorage.getItem('token');
+        const token = localStorage.getItem("token");
         const response = await UserService.getAllCustomer(token);
-        if (response && response.data) {
-          setUsers(response.data); // Assuming response structure is { data: [...] }
+        console.log("Full API response:", response); // Log the entire response object
+        if (response) {
+          if (Array.isArray(response)) {
+            setUsers(response);
+          } else {
+            console.error("API response is not an array:", response);
+          }
+        } else {
+          console.error("API response is undefined or invalid:", response);
         }
       } catch (error) {
         console.error("Error loading users:", error);
@@ -36,11 +41,10 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    // Ensure searchUsers is defined before it's used in useEffect dependency array
     if (searchQuery) {
       searchUsers();
     }
-  }, [searchQuery, users]); // Add users to the dependency array
+  }, [searchQuery, users]);
 
   const handleDownload = () => {
     let dataToDownload = [];
@@ -77,8 +81,9 @@ const Home = () => {
     setCurrentPage(pageNumber);
   };
 
-  // Ensure renderUsers has a fallback in case users is not defined yet
-  const renderUsers = searchQuery ? searchResults : users.slice((currentPage - 1) * usersPerPage, currentPage * usersPerPage);
+  const renderUsers = searchQuery
+    ? searchResults
+    : users.slice((currentPage - 1) * usersPerPage, currentPage * usersPerPage);
 
   return (
     <div className="container-fluid h-100">
@@ -103,24 +108,24 @@ const Home = () => {
           <thead>
             <tr>
               <th scope="col">S.N</th>
-              <th scope="col">customer id generate</th>
-              <th scope="col">customerId</th>
-              <th scope="col">firstName</th>
-              <th scope="col">lastName</th>
-              <th scope="col">firstNameInKhmer</th>
-              <th scope="col">lastNameInKhmer</th>
-              <th scope="col">phoneNumbers1</th>
-              <th scope="col">phoneNumbers2</th>
-              <th scope="col">gender</th>
+              <th scope="col">Customer ID</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">First Name (Khmer)</th>
+              <th scope="col">Last Name (Khmer)</th>
+              <th scope="col">Phone Number 1</th>
+              <th scope="col">Phone Number 2</th>
+              <th scope="col">Gender</th>
               <th scope="col">Map</th>
               <th scope="col">Actions</th>
             </tr>
           </thead>
           <tbody>
             {renderUsers.map((user, index) => (
-              <tr key={index}>
-                <th scope="row">{(currentPage - 1) * usersPerPage + index + 1}</th>
-                <td>{user.id}</td>
+              <tr key={user.id}>
+                <th scope="row">
+                  {(currentPage - 1) * usersPerPage + index + 1}
+                </th>
                 <td>{user.customerId}</td>
                 <td>{user.firstName}</td>
                 <td>{user.lastName}</td>
@@ -130,9 +135,17 @@ const Home = () => {
                 <td>{user.phoneNumbers2}</td>
                 <td>{user.gender}</td>
                 <td>
-                  <a href={user.googleMap} target="_blank" rel="noopener noreferrer">
-                    Open in Google Maps
-                  </a>
+                  {user.googleMap ? (
+                    <a
+                      href={user.googleMap}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Open in Google Maps
+                    </a>
+                  ) : (
+                    "N/A"
+                  )}
                 </td>
                 <td>
                   <Link className="btn btn-primary mr-2" to={`/users/${user.id}`}>
@@ -145,15 +158,17 @@ const Home = () => {
         </table>
         <nav>
           <ul className="pagination">
-            {Array.from({ length: Math.ceil(users.length / usersPerPage) }, (_, index) => index + 1).map((number) => (
+            {Array.from(
+              { length: Math.ceil(users.length / usersPerPage) },
+              (_, index) => index + 1
+            ).map((number) => (
               <li
                 key={number}
-                className={`page-item ${number === currentPage ? "active" : ""}`}
+                className={`page-item ${
+                  number === currentPage ? "active" : ""
+                }`}
               >
-                <button
-                  className="page-link"
-                  onClick={() => paginate(number)}
-                >
+                <button className="page-link" onClick={() => paginate(number)}>
                   {number}
                 </button>
               </li>
