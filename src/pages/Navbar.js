@@ -77,7 +77,7 @@ export default function Navbar() {
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/repayment">
+                    <Link className="dropdown-item" to="/registerCustomer">
                       RegisterCustomer
                     </Link>
                   </li>

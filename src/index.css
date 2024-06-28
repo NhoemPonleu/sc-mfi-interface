@@ -1,7 +1,7 @@
 
 /* NAVBAR STYLING */
 
-*{
+/* *{
   margin: 0;
   }
   
@@ -11,7 +11,7 @@
   padding: 10px;
   border-radius: 5px;
   text-decoration: none;
-  }
+  } */
   
   nav {
   background-color: #333;
@@ -90,7 +90,7 @@
   border-radius: 5px;
   }
   
-  button {
+  /* button {
   display: block;
   width: 100%;
   padding: 10px;
@@ -100,7 +100,7 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  }
+  } */
   
   button:hover {
   background-color: #0056b3;
@@ -175,7 +175,7 @@
   
   
   /* FOOTER STYKLING */
-  .footer{
+  /* .footer{
   background-color: black;
   color: white;
   padding: 20px;
@@ -183,7 +183,7 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  }
+  } */
   
   
   

@@ -2,7 +2,7 @@ import axios from "axios";
 
 class UserService {
    static BASE_URL = "https://sc-mfi.onrender.com";
- // static BASE_URL = "http://localhost:1010";
+ //static BASE_URL = "http://localhost:1010";
 
   static async login(email, password) {
     try {
@@ -20,6 +20,20 @@ class UserService {
     try {
       const response = await axios.post(
         `${UserService.BASE_URL}/auth/register`,
+        userData,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      return response.data;
+    } catch (err) {
+      throw err;
+    }
+  }
+  static async registerCustomer(userData, token) {
+    try {
+      const response = await axios.post(
+        `${UserService.BASE_URL}/api/v1/customers/registercustomer`,
         userData,
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -75,7 +89,16 @@ class UserService {
       throw err;
     }
   }
-
+  static async getCustomerView(userId, token) {
+    try {
+        const response = await axios.get(`${UserService.BASE_URL}/api/v1/customers/${userId}`, {
+            headers: { Authorization: `Bearer ${token}` },
+        });
+        return response.data;
+    } catch (err) {
+        throw err;
+    }
+}
   static async deleteUser(userId, token) {
     try {
       const response = await axios.delete(`${UserService.BASE_URL}/admin/delete/${userId}`, {
