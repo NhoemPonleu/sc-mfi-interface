@@ -5,7 +5,6 @@ import Home from './pages/Home';
 import Repayment from './pages/Repayment';
 import Navbar from './pages/Navbar';
 import UserView from './pages/UserView';
-import UserService from './components/service/Userservice';
 import FooterComponent from './layout/Footer';
 
 function App() {

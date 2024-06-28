@@ -33,7 +33,7 @@ class UserService {
   static async registerCustomer(userData, token) {
     try {
       const response = await axios.post(
-        `${UserService.BASE_URL}/api/v1/customers/registercustomer`,
+        `${UserService.BASE_URL}/api/v1/customers`,
         userData,
         {
           headers: { Authorization: `Bearer ${token}` },
