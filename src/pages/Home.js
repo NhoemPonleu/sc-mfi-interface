@@ -117,6 +117,7 @@ const Home = () => {
               <th scope="col">Phone Number 2</th>
               <th scope="col">Gender</th>
               <th scope="col">Map</th>
+              <th scope="col">Cus Drive URl</th>
               <th scope="col">Actions</th>
             </tr>
           </thead>
@@ -142,6 +143,19 @@ const Home = () => {
                       rel="noopener noreferrer"
                     >
                       Open in Google Maps
+                    </a>
+                  ) : (
+                    "N/A"
+                  )}
+                </td>
+                <td>
+                  {user.customerURLImage ? (
+                    <a
+                      href={user.customerURLImage}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Open Customer URL 
                     </a>
                   ) : (
                     "N/A"

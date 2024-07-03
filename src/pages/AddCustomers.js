@@ -20,6 +20,7 @@ export default function AddCustomer() {
     lastNameInKhmer: "",
     maritalStatus: "",
     employeeType: "",
+    customerURLImage:"",
     gender: "",
     resident: "",
     identityNo: ""
@@ -37,6 +38,7 @@ export default function AddCustomer() {
     lastNameInKhmer,
     maritalStatus,
     employeeType,
+    customerURLImage,
     gender,
     resident,
     identityNo

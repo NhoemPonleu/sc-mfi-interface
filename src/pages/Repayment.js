@@ -26,6 +26,7 @@ function Repayment() {
     resident: "",
     identityNo: "",
     googleMap: "",
+    customerURLImage:"",
     husbandPhone1: "",
     createAccount: false
   });
@@ -46,6 +47,7 @@ function Repayment() {
     identityNo,
     createAccount,
     googleMap,
+    customerURLImage,
     husbandPhone1,
   } = user;
 
@@ -110,6 +112,12 @@ function Repayment() {
             <MDBInput name="googleMap"
               value={googleMap} onChange={onInputChange}
               id='formPhone1' label='' placeholder="map urls" />
+          </MDBCol>
+          <MDBCol>
+            <p className="text-muted">Input customerimage url</p>
+            <MDBInput name="customerURLImage"
+              value={customerURLImage} onChange={onInputChange}
+              id='formPhone1' label='' placeholder="customer drive urls" />
           </MDBCol>
           <MDBCol>
             <p className="text-muted">Family Phone Number</p>
