@@ -9,6 +9,7 @@ import FooterComponent from './components/layout/Footer';
 import RegisterJoinerCustomer from './components/customers/RegisterJoinerCustomers';
 import AuthService from './components/service/Userservice'; // Example auth service
 import AddCustomer from './components/customers/AddCustomers';
+import Page1 from './components/admins/Page1';
 
 function App() {
   const location = useLocation();
@@ -23,9 +24,18 @@ function App() {
           <Route path="/profile1" element={<Home />} />
           <Route path="/homepage" element={<Home />} />
           <Route path="/users/:id" element={<UserView />} />
-          <Route path="/adduser" element={<AddCustomer />} />
+          {AuthService.isAuthenticated() && AuthService.isAdmin() ? (
+            <Route path="/adduser" element={<AddCustomer />} />
+          ) : null}
+          {AuthService.isAuthenticated() && AuthService.isAdmin() ? (
+            <Route path="/registerCustomer" element={<Repayment />} />
+          ) : null}
+          {AuthService.isAuthenticated() && AuthService.isUser() ? (
+            <Route path="/customerlist" element={<Home />} />
+          ) : null}
           <Route path="/addJoiner" element={<PrivateRoute element={<RegisterJoinerCustomer />} />} />
-          <Route path="/registerCustomer" element={<PrivateRoute element={<Repayment />} />} />
+          <Route path="/admin" element={<PrivateRoute element={<Page1 />} />} />
+          {/* <Route path="/registerCustomer" element={<PrivateRoute element={<Repayment />} />} /> */}
           <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
       </div>

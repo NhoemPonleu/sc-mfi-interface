@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import logo from "../asset/Logo512/Logo512.png"; // Adjust the path to your logo file
+import "./Navbar.css"; // Create a CSS file for Navbar styles
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -30,7 +32,7 @@ export default function Navbar() {
       >
         <div className="container-fluid">
           <Link className="navbar-brand" to="/homepage">
-            SC SYSTEM
+            CRM Management
           </Link>
           <button
             className="navbar-toggler"
@@ -92,10 +94,13 @@ export default function Navbar() {
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/viewHello">
-                  View Hello World
+                  គោលការណ៏២០២៤
                 </Link>
               </li>
             </ul>
+            <div className="d-flex ml-auto align-items-center">
+              <img src={logo} alt="Logo" className="navbar-logo" />
+            </div>
           </div>
         </div>
       </nav>

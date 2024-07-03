@@ -6,19 +6,19 @@
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
-  
   .background-text {
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 48px;
+    left: 10%; /* Adjust left positioning as needed */
+    transform: translateY(-50%);
+    font-size: 100px;
     font-weight: bold;
     color: rgba(0, 0, 0, 0.1);
     z-index: 0;
     text-align: center;
     white-space: nowrap;
   }
+  
   
   .error-message {
     color: red;
