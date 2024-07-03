@@ -57,10 +57,7 @@ export default function Navbar() {
                 >
                   View
                 </Link>
-                <ul
-                  className="dropdown-menu"
-                  aria-labelledby="navbarDropdown"
-                >
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
                     <Link className="dropdown-item" to="/about">
                       About
@@ -72,13 +69,13 @@ export default function Navbar() {
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/homepage">
-                      CustomerList
+                    <Link className="dropdown-item" to="/customerlist">
+                      Customer List
                     </Link>
                   </li>
                   <li>
                     <Link className="dropdown-item" to="/registerCustomer">
-                      RegisterCustomer
+                      Register Customer
                     </Link>
                   </li>
                 </ul>

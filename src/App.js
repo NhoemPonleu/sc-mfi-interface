@@ -1,11 +1,14 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
-import LoginPage from './pages/LoginPage';
-import Home from './pages/Home';
-import Repayment from './pages/Repayment';
-import Navbar from './pages/Navbar';
-import UserView from './pages/UserView';
-import FooterComponent from './layout/Footer';
+import LoginPage from './components/auth/LoginPage';
+import Home from './components/customers/CustomerList';
+import Repayment from './components/customers/RegisterCustomer';
+import Navbar from './components/layout/Navbar';
+import UserView from './components/customers/ViewCustomers';
+import FooterComponent from './components/layout/Footer';
+import RegisterJoinerCustomer from './components/customers/RegisterJoinerCustomers';
+import AuthService from './components/service/Userservice'; // Example auth service
+import AddCustomer from './components/customers/AddCustomers';
 
 function App() {
   const location = useLocation();
@@ -20,13 +23,9 @@ function App() {
           <Route path="/profile1" element={<Home />} />
           <Route path="/homepage" element={<Home />} />
           <Route path="/users/:id" element={<UserView />} />
-          <Route path="/registerCustomer" element={<Repayment />} />
-
-          {/* Check if user is authenticated and admin before rendering admin-only routes */}
-          {/* {UserService.isAdmin() && (
-            <Route path="/registerCustomer" element={<Repayment />} />
-          )} */}
-
+          <Route path="/adduser" element={<AddCustomer />} />
+          <Route path="/addJoiner" element={<PrivateRoute element={<RegisterJoinerCustomer />} />} />
+          <Route path="/registerCustomer" element={<PrivateRoute element={<Repayment />} />} />
           <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
       </div>
@@ -34,6 +33,10 @@ function App() {
     </div>
   );
 }
+
+const PrivateRoute = ({ element }) => {
+  return AuthService.isAuthenticated() ? element : <Navigate to="/login" />;
+};
 
 function AppWrapper() {
   return (

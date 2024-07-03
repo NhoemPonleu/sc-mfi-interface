@@ -204,7 +204,7 @@ import {
   MDBBtn
 } from 'mdb-react-ui-kit';
 
-const Joiner = () => {
+const RegisterJoinerCustomer = () => {
   const [formState, setFormState] = useState({
     firstName: '',
     lastName: '',
@@ -393,4 +393,4 @@ const Joiner = () => {
   );
 };
 
-export default Joiner;
+export default RegisterJoinerCustomer;

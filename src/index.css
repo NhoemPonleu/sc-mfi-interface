@@ -103,7 +103,7 @@
   } */
   
   button:hover {
-  background-color: #0056b3;
+  background-color: hwb(341 0% 30%);
   }
   
   @media only screen and (max-width: 600px) {
@@ -175,15 +175,15 @@
   
   
   /* FOOTER STYKLING */
-  /* .footer{
-  background-color: black;
-  color: white;
+  .footer{
+  background-color: blue;
+  color: whitesmoke;
   padding: 20px;
   text-align: center;
   position: fixed;
   bottom: 0;
   width: 100%;
-  } */
+  }
   
   
   
@@ -276,7 +276,7 @@
   }
   
   button:hover {
-  background-color: #0056b3;
+  background-color: hwb(0 0% 30%);
   }
   
   .delete-button {
@@ -303,6 +303,9 @@
   margin-bottom: 20px;
   font-size: 24px;
   color: #333;
+  }
+  .container{
+    border-radius: 1%;
   }
   
   .profile-page-container p {

@@ -7,7 +7,7 @@ import {
   MDBCheckbox,
   MDBBtn
 } from 'mdb-react-ui-kit';
-import UserService from "../components/service/Userservice";
+import UserService from "../service/Userservice";
 
 function Repayment() {
   let navigate = useNavigate();

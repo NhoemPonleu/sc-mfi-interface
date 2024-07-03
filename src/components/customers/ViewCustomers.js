@@ -5,7 +5,7 @@ import { saveAs } from "file-saver";
 import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
 import html2canvas from "html2canvas";
 import { FacebookShareButton, TelegramShareButton } from "react-share";
-import UserService from "../components/service/Userservice";
+import UserService from "../service/Userservice";
 
 const styles = StyleSheet.create({
   page: {

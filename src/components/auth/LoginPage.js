@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import UserService from "../components/service/Userservice";
+import UserService from "../service/Userservice";
 import "./Login.css"; // Import the CSS file
 
 function LoginPage() {
