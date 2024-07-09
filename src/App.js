@@ -43,6 +43,7 @@ function App() {
           {AuthService.isAuthenticated() && AuthService.isUser() && (
             <>
               <Route path="/customerlist" element={<Home />} />
+              <Route path="/registerCustomer" element={<Repayment />} />
               <Route path="/addJoiner" element={<PrivateRoute element={<RegisterJoinerCustomer />} />} />
             </>
           )}
