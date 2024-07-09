@@ -127,7 +127,7 @@ const Home = () => {
                 <th scope="row">
                   {(currentPage - 1) * usersPerPage + index + 1}
                 </th>
-                <td>{user.customerId}</td>
+                <td>{user.id}</td>
                 <td>{user.firstName}</td>
                 <td>{user.lastName}</td>
                 <td>{user.firstNameInKhmer}</td>

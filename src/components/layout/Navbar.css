@@ -1,4 +1,15 @@
-.navbar-logo {
+.navbar {
+    transition: top 0.3s ease-in-out;
+  }
+  
+  .fixed-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Adjust z-index as needed */
+  }
+  
+  .navbar-logo {
     height: 50px; /* Adjust height as needed */
     width: auto; /* Ensures the width scales proportionally */
   }
