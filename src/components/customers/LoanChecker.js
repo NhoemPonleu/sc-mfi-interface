@@ -14,7 +14,7 @@ const LoanStatusChecker = () => {
   const handleCheckStatus = async () => {
     try {
       const token = localStorage.getItem('token');
-      const data = await LoanSerVice.getUserById(token); // Calling the function directly here
+      const data = await getUserById(loanId, token); // Calling the function directly here
       setPaymentStatus(data);
       setError(null);
     } catch (err) {
@@ -22,6 +22,18 @@ const LoanStatusChecker = () => {
       setError('Error fetching status');
     }
   };
+
+  const getUserById = async (userId, token) => {
+    try {
+      const response = await axios.get(`${LoanSerVice.BASE_URL}/api/v1/loan/${userId}/payment-status`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      return response.data;
+    } catch (err) {
+      throw err;
+    }
+  };
+
   return (
     <div>
       <h2>Loan Status Checker</h2>
