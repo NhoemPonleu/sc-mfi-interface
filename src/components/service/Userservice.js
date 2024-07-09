@@ -1,8 +1,8 @@
 import axios from "axios";
 
 class UserService {
-   static BASE_URL = "https://sc-mfi.onrender.com";
- //static BASE_URL = "http://localhost:1010";
+   //static BASE_URL = "https://sc-mfi.onrender.com";
+ static BASE_URL = "http://localhost:1010";
 
   static async login(email, password) {
     try {
@@ -15,7 +15,20 @@ class UserService {
       throw err;
     }
   }
-
+  static async registerSchedule(userData, token) { // Corrected method name
+    try {
+      const response = await axios.post(
+        `${UserService.BASE_URL}/api/v1/loan/schedule`, // Corrected URL reference
+        userData,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      return response.data;
+    } catch (err) {
+      throw err;
+    }
+  }
   static async register(userData, token) {
     try {
       const response = await axios.post(

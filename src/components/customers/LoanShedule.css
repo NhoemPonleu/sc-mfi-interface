@@ -1,0 +1,48 @@
+/* LoanShedule.css */
+
+/* Hide elements with this class when printing */
+.print-hide {
+    display: none;
+  }
+  
+  /* Show elements with this class only when printing */
+  .print-only {
+    display: block;
+  }
+  
+  @media print {
+    /* Adjust table styles for printing */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 10px;
+    }
+  
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+    }
+  
+    th {
+      background-color: #f2f2f2;
+    }
+  
+    /* Hide form elements and buttons except the table and .print-only */
+    body * {
+      visibility: hidden;
+    }
+  
+    .print-only, .print-only * {
+      visibility: visible;
+    }
+  
+    .print-only {
+      position: relative; /* Changed to relative to maintain document flow */
+      page-break-before: always; /* Ensure each .print-only section starts on a new page */
+    }
+  
+    .print-only > *:not(table) {
+      display: none;
+    }
+  }
+  

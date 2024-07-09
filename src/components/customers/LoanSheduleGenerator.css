@@ -1,0 +1,46 @@
+/* Basic CSS for styling */
+.loan-schedule-generator {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  .input-container {
+    margin-bottom: 10px;
+  }
+  
+  .hide-on-print {
+    display: block;
+  }
+  
+  @media print {
+    body * {
+      visibility: hidden;
+    }
+    .loan-schedule-generator, .loan-schedule-generator * {
+      visibility: visible;
+    }
+    .loan-schedule-generator {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  
+    .input-container, .hide-on-print {
+      display: none;
+    }
+  
+    /* Adjust table styling for printing if needed */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: lightgray;
+    }
+  }
+  

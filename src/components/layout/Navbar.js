@@ -60,8 +60,18 @@ export default function Navbar() {
               </Link>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <Link className="dropdown-item" to="/about">
-                    About
+                  <Link className="dropdown-item" to="/shedule">
+                    generate shedule
+                  </Link>
+                  <li>
+                  <Link className="dropdown-item" to="/checker">
+                    Check Loan 
+                  </Link>
+                </li>
+                </li>
+                <li>
+                  <Link className="dropdown-item" to="/shedule1">
+                    generate shedule1
                   </Link>
                 </li>
                 <li>
