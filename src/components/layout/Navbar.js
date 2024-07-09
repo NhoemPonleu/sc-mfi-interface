@@ -9,15 +9,10 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
-      if (scrollTop > 0) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(scrollTop > 0);
     };
 
     window.addEventListener("scroll", handleScroll);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -61,17 +56,22 @@ export default function Navbar() {
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
                   <Link className="dropdown-item" to="/shedule">
-                    generate shedule
-                  </Link>
-                  <li>
-                  <Link className="dropdown-item" to="/checker">
-                    Check Loan 
+                    Generate Schedule
                   </Link>
                 </li>
+                <li>
+                  <a
+                    className="dropdown-item"
+                    href="/checker"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Check Loan
+                  </a>
                 </li>
                 <li>
                   <Link className="dropdown-item" to="/shedule1">
-                    generate shedule1
+                    Generate Schedule1
                   </Link>
                 </li>
                 <li>
