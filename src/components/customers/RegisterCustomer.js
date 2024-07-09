@@ -26,7 +26,10 @@ function Repayment() {
     resident: "",
     identityNo: "",
     googleMap: "",
-    customerURLImage:"",
+    customerURLImage: "",
+    homeNo: "",
+    streetNo: "",
+    currentAddress: "",
     husbandPhone1: "",
     createAccount: false
   });
@@ -48,15 +51,20 @@ function Repayment() {
     createAccount,
     googleMap,
     customerURLImage,
+    homeNo,
+    streetNo,
+    currentAddress,
     husbandPhone1,
   } = user;
 
   const onInputChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
+    console.log(`Updated ${e.target.name}:`, e.target.value);
   };
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    console.log("Submitting user data:", user);
     const shouldSubmit = window.confirm("Are you sure you want to submit?");
     if (shouldSubmit) {
       try {
@@ -111,20 +119,42 @@ function Repayment() {
             <p className="text-muted">Input map url</p>
             <MDBInput name="googleMap"
               value={googleMap} onChange={onInputChange}
-              id='formPhone1' label='' placeholder="map urls" />
+              id='formGoogleMap' label='' placeholder="map urls" />
           </MDBCol>
           <MDBCol>
-            <p className="text-muted">Input customerimage url</p>
+            <p className="text-muted">Input customer image url</p>
             <MDBInput name="customerURLImage"
               value={customerURLImage} onChange={onInputChange}
-              id='formPhone1' label='' placeholder="customer drive urls" />
+              id='formCustomerURLImage' label='' placeholder="customer drive urls" />
           </MDBCol>
           <MDBCol>
             <p className="text-muted">Family Phone Number</p>
             <MDBInput name="husbandPhone1"
               value={husbandPhone1}
               onChange={onInputChange}
-              id='formPhone2' label='' placeholder="Enter family phone number" />
+              id='formHusbandPhone1' label='' placeholder="Enter family phone number" />
+          </MDBCol>
+        </MDBRow>
+
+        <MDBRow className='mb-4'>
+          <MDBCol>
+            <p className="text-muted">HomeNo</p>
+            <MDBInput name="homeNo"
+              value={homeNo} onChange={onInputChange}
+              id='formHomeNo' label='' placeholder="Enter home number" />
+          </MDBCol>
+          <MDBCol>
+            <p className="text-muted">Street No</p>
+            <MDBInput name="streetNo"
+              value={streetNo} onChange={onInputChange}
+              id='formStreetNo' label='' placeholder="Enter street number" />
+          </MDBCol>
+          <MDBCol>
+            <p className="text-muted">Address</p>
+            <MDBInput name="currentAddress"
+              value={currentAddress}
+              onChange={onInputChange}
+              id='formCurrentAddress' label='' placeholder="Enter current address" />
           </MDBCol>
         </MDBRow>
 
