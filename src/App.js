@@ -16,6 +16,7 @@ import LoanStatusChecker from './components/customers/LoanChecker';
 import LoanScheduleGenerator from './components/customers/LoanScheduleGenerator ';
 import LoanRepaymentForm from './components/customers/LoanRepaymentForm';
 import RegisterCustomerForm from './components/customers/RegisterCustomerForm';
+import LoanList from './components/customers/LoanList';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
           <Route path="/viewHello" element={<LoanScheduleGenerator />} />
           <Route path="/payment" element={<LoanRepaymentForm />} />
           <Route path="/payment1" element={<RegisterCustomerForm />} />
+          <Route path="/listloan" element={<LoanList />} />
           {/* <Route path="/schedule1" element={<LoanSchedule />} /> */}
           <Route path="/users/:id" element={<UserView />} />
           
