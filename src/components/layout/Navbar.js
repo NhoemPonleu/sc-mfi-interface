@@ -68,6 +68,16 @@ export default function Navbar() {
                     Check Loan 
                   </Link>
                 </li>
+                <li>
+                  <Link className="dropdown-item" to="/payment">
+                    Loan Payment
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item" to="/payment1">
+                    customer
+                  </Link>
+                </li>
                 </li>
                 <li>
                   <Link className="dropdown-item" to="/shedule1">

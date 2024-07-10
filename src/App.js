@@ -14,6 +14,8 @@ import DynamicForm from './components/customers/Dynamicform';
 import Schedule from './components/customers/Shedule';
 import LoanStatusChecker from './components/customers/LoanChecker';
 import LoanScheduleGenerator from './components/customers/LoanScheduleGenerator ';
+import LoanRepaymentForm from './components/customers/LoanRepaymentForm';
+import RegisterCustomerForm from './components/customers/RegisterCustomerForm';
 
 
 function App() {
@@ -32,6 +34,8 @@ function App() {
           <Route path="/homepage11" element={<Schedule />} />
           <Route exact path="/dynamic" element={<DynamicForm />} />
           <Route path="/viewHello" element={<LoanScheduleGenerator />} />
+          <Route path="/payment" element={<LoanRepaymentForm />} />
+          <Route path="/payment1" element={<RegisterCustomerForm />} />
           {/* <Route path="/schedule1" element={<LoanSchedule />} /> */}
           <Route path="/users/:id" element={<UserView />} />
           
