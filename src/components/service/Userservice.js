@@ -1,8 +1,8 @@
 import axios from "axios";
 
 class UserService {
-  // static BASE_URL = "https://sc-mfi.onrender.com";
- static BASE_URL = "http://localhost:1010";
+   static BASE_URL = "https://sc-mfi.onrender.com";
+// static BASE_URL = "http://localhost:1010";
 
   static async login(email, password) {
     try {

@@ -56,7 +56,7 @@ export default function Navbar() {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                View
+                Loan Module
               </Link>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
