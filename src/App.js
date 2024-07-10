@@ -11,12 +11,13 @@ import AuthService from './components/service/Userservice'; // Example auth serv
 import AddCustomer from './components/customers/AddCustomers';
 import Page1 from './components/admins/Page1';
 import DynamicForm from './components/customers/Dynamicform';
-import Schedule from './components/customers/Shedule';
-import LoanStatusChecker from './components/customers/LoanChecker';
-import LoanScheduleGenerator from './components/customers/LoanScheduleGenerator ';
-import LoanRepaymentForm from './components/customers/LoanRepaymentForm';
+import Schedule from './components/Loan/Shedule';
+import LoanStatusChecker from './components/Loan/LoanChecker';
+import LoanScheduleGenerator from './components/Loan/LoanScheduleGenerator ';
+import LoanRepaymentForm from './components/Loan/LoanRepaymentForm';
 import RegisterCustomerForm from './components/customers/RegisterCustomerForm';
-import LoanList from './components/customers/LoanList';
+import LoanList from './components/Loan/LoanList';
+import RegisterNewLoan from './components/Loan/RegisterNewLoan';
 
 
 function App() {
@@ -37,7 +38,9 @@ function App() {
           <Route path="/viewHello" element={<LoanScheduleGenerator />} />
           <Route path="/payment" element={<LoanRepaymentForm />} />
           <Route path="/payment1" element={<RegisterCustomerForm />} />
+          <Route path="/newLoan" element={<RegisterNewLoan />} />
           <Route path="/listloan" element={<LoanList />} />
+          <Route path="/shedule" element={<LoanScheduleGenerator />} />
           {/* <Route path="/schedule1" element={<LoanSchedule />} /> */}
           <Route path="/users/:id" element={<UserView />} />
           
@@ -66,7 +69,7 @@ function App() {
           <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
       </div>
-      <FooterComponent />
+      {/* <FooterComponent /> */}
     </div>
   );
 }

@@ -2,13 +2,28 @@ import axios from "axios";
 
 class LoanSerVice {
    static BASE_URL = "https://sc-mfi.onrender.com";
-   // static BASE_URL = "http://localhost:1010";
+  //  static BASE_URL = "http://localhost:1010";
     
    static async registerShedule(userData, token) {
     try {
         console.log("Request URL:", `${LoanSerVice.BASE_URL}/api/v1/loan/shedule`);
       const response = await axios.post(
         `${LoanSerVice.BASE_URL}/api/v1/loan/shedule`,
+        userData,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      return response.data;
+    } catch (err) {
+      throw err;
+    }
+  }
+  static async registerNewLoan(userData, token) {
+    try {
+        console.log("Request URL:", `${LoanSerVice.BASE_URL}/api/v1/loan`);
+      const response = await axios.post(
+        `${LoanSerVice.BASE_URL}/api/v1/loan`,
         userData,
         {
           headers: { Authorization: `Bearer ${token}` },

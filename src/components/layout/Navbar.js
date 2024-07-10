@@ -74,6 +74,76 @@ export default function Navbar() {
                   </Link>
                 </li>
                 <li>
+                  <Link className="dropdown-item" to="/newLoan">
+                    Register New Loan
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item" to="/payment">
+                    Loan Payment
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item" to="/payment1">
+                    customer
+                  </Link>
+                </li>
+                </li>
+                <li>
+                  <Link className="dropdown-item" to="/shedule1">
+                    generate shedule1
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item" to="/service">
+                    Service
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item" to="/customerlist">
+                    Customer List
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item" to="/registerCustomer">
+                    Register Customer
+                  </Link>
+                </li>
+              </ul>
+            </li>
+
+            <li className="nav-item dropdown">
+              <Link
+                className="nav-link dropdown-toggle"
+                to="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Common Module
+              </Link>
+              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <Link className="dropdown-item" to="/customerList">
+                    List Customer 
+                  </Link>
+                  <li>
+                  <Link className="dropdown-item" to="/checker">
+                   Register Customer
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item" to="/listloan">
+                    List All Loan
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item" to="/newLoan">
+                    Register New Loan
+                  </Link>
+                </li>
+                <li>
                   <Link className="dropdown-item" to="/payment">
                     Loan Payment
                   </Link>
@@ -108,7 +178,7 @@ export default function Navbar() {
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/adduser">
-                Add User
+                Customer Info
               </Link>
             </li>
             <li className="nav-item">
