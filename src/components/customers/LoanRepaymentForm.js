@@ -32,10 +32,13 @@ const LoanRepaymentForm = () => {
       if (!token) {
         throw new Error('No token found');
       }
-
+  
       const response = await LoanSerVice.registerLoanRepayment(formData, token);
       alert('Loan repayment successful');
       setFormData(initialFormData); // Reset form fields to initial empty values
+  
+      // Example: Log or use the response data
+      console.log('Response:', response);
     } catch (error) {
       console.error('There was an error making the repayment!', error);
       if (error.response && error.response.status === 404) {
@@ -49,7 +52,7 @@ const LoanRepaymentForm = () => {
         alert('There was an error making the repayment: ' + error.message);
       }
     }
-  };
+  };  
 
   return (
     <Container maxWidth="sm">

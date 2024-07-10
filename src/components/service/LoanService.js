@@ -23,7 +23,7 @@ class LoanSerVice {
     try {
         console.log("Request URL:", `${LoanSerVice.BASE_URL}/api/v1/loan/repayment`);
       const response = await axios.post(
-        `${LoanSerVice.BASE_URL}/api/v1/loan/shedule`,
+        `${LoanSerVice.BASE_URL}/api/v1/loan/repayment`,
         userData,
         {
           headers: { Authorization: `Bearer ${token}` },
