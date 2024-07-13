@@ -85,7 +85,7 @@ function Repayment() {
     <Container maxWidth="md">
       <Box component="form" onSubmit={onSubmit} sx={{ mt: 3 }}>
         <Grid container spacing={3}>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={6}>
             <Typography variant="subtitle1" gutterBottom>First Name</Typography>
             <TextField
               name="firstName"
@@ -96,7 +96,7 @@ function Repayment() {
               placeholder="Enter first name"
             />
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={6}>
             <Typography variant="subtitle1" gutterBottom>Last Name</Typography>
             <TextField
               name="lastName"
@@ -107,7 +107,7 @@ function Repayment() {
               placeholder="Enter last name"
             />
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={6}>
             <Typography variant="subtitle1" gutterBottom>Phone Numbers 1</Typography>
             <TextField
               name="phoneNumbers1"
@@ -118,7 +118,7 @@ function Repayment() {
               placeholder="Enter phone number 1"
             />
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={6}>
             <Typography variant="subtitle1" gutterBottom>Phone Numbers 2</Typography>
             <TextField
               name="phoneNumbers2"
@@ -129,7 +129,7 @@ function Repayment() {
               placeholder="Enter phone number 2"
             />
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={6}>
             <Typography variant="subtitle1" gutterBottom>Input map URL</Typography>
             <TextField
               name="googleMap"
@@ -140,7 +140,7 @@ function Repayment() {
               placeholder="Map URLs"
             />
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={6}>
             <Typography variant="subtitle1" gutterBottom>Input customer image URL</Typography>
             <TextField
               name="customerURLImage"
@@ -151,7 +151,7 @@ function Repayment() {
               placeholder="Customer drive URLs"
             />
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={6}>
             <Typography variant="subtitle1" gutterBottom>Family Phone Number</Typography>
             <TextField
               name="husbandPhone1"
@@ -162,7 +162,7 @@ function Repayment() {
               placeholder="Enter family phone number"
             />
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={6}>
             <Typography variant="subtitle1" gutterBottom>Home No</Typography>
             <TextField
               name="homeNo"
@@ -173,7 +173,7 @@ function Repayment() {
               placeholder="Enter home number"
             />
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={6}>
             <Typography variant="subtitle1" gutterBottom>Street No</Typography>
             <TextField
               name="streetNo"
@@ -184,7 +184,7 @@ function Repayment() {
               placeholder="Enter street number"
             />
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={6}>
             <Typography variant="subtitle1" gutterBottom>Address</Typography>
             <TextField
               name="currentAddress"
@@ -195,7 +195,7 @@ function Repayment() {
               placeholder="Enter current address"
             />
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={6}>
             <Typography variant="subtitle1" gutterBottom>Enter amount</Typography>
             <TextField
               name="amount"
@@ -206,7 +206,7 @@ function Repayment() {
               placeholder="Enter amount"
             />
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={6}>
             <Typography variant="subtitle1" gutterBottom>Enter status</Typography>
             <TextField
               name="status"
@@ -217,7 +217,7 @@ function Repayment() {
               placeholder="Enter status"
             />
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={6}>
             <Typography variant="subtitle1" gutterBottom>Enter first name in Khmer</Typography>
             <TextField
               name="firstNameInKhmer"
@@ -228,7 +228,7 @@ function Repayment() {
               placeholder="Enter first name in Khmer"
             />
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={6}>
             <Typography variant="subtitle1" gutterBottom>Enter last name in Khmer</Typography>
             <TextField
               name="lastNameInKhmer"
@@ -239,7 +239,7 @@ function Repayment() {
               placeholder="Enter last name in Khmer"
             />
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={6}>
             <Typography variant="subtitle1" gutterBottom>Enter marital status</Typography>
             <TextField
               name="maritalStatus"
@@ -250,7 +250,7 @@ function Repayment() {
               placeholder="Enter marital status"
             />
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={6}>
             <Typography variant="subtitle1" gutterBottom>Enter employee type</Typography>
             <TextField
               name="employeeType"
@@ -261,7 +261,7 @@ function Repayment() {
               placeholder="Enter employee type"
             />
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={6}>
             <Typography variant="subtitle1" gutterBottom>Enter gender</Typography>
             <TextField
               name="gender"
@@ -272,7 +272,7 @@ function Repayment() {
               placeholder="Enter gender"
             />
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={6}>
             <Typography variant="subtitle1" gutterBottom>Enter resident</Typography>
             <TextField
               name="resident"
@@ -283,7 +283,7 @@ function Repayment() {
               placeholder="Enter resident"
             />
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={6}>
             <Typography variant="subtitle1" gutterBottom>Enter identity number</Typography>
             <TextField
               name="identityNo"
