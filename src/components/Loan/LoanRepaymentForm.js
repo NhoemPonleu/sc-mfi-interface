@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
 import { TextField, Button, Container, Box, Typography } from '@mui/material';
-import LoanSerVice from '../service/LoanService';
+import LoanService from '../service/LoanService';
+import PaymentSlip from './PaymentSlip';
 
 const LoanRepaymentForm = () => {
   const initialFormData = {
     loanId: '',
     repaymentAmount: '',
+    customerName: '',
     repaymentDate: '',
     referenceNumber: '',
     paidFromBank: ''
   };
 
   const [formData, setFormData] = useState(initialFormData);
+  const [showSlip, setShowSlip] = useState(false);
+  const [submittedData, setSubmittedData] = useState(null); // To store submitted data
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,11 +36,21 @@ const LoanRepaymentForm = () => {
       if (!token) {
         throw new Error('No token found');
       }
-  
-      const response = await LoanSerVice.registerLoanRepayment(formData, token);
+
+      // Fetch customer name using loan ID
+      const loanData = await LoanService.getLoanById(formData.loanId, token);
+      const updatedFormData = { ...formData, customerName: loanData.customerName };
+
+      // Debug: Log the token and updated form data
+      console.log('Token:', token);
+      console.log('Updated Form Data:', updatedFormData);
+
+      const response = await LoanService.registerLoanRepayment(updatedFormData, token);
       alert('Loan repayment successful');
+      setSubmittedData(updatedFormData); // Store the submitted data
+      setShowSlip(true); // Show the payment slip
       setFormData(initialFormData); // Reset form fields to initial empty values
-  
+
       // Example: Log or use the response data
       console.log('Response:', response);
     } catch (error) {
@@ -48,11 +62,13 @@ const LoanRepaymentForm = () => {
         } else {
           alert('Loan not found due to an unexpected error.');
         }
+      } else if (error.response && error.response.status === 403) {
+        alert('You are not authorized to make this repayment. Please check your permissions.');
       } else {
         alert('There was an error making the repayment: ' + error.message);
       }
     }
-  };  
+  };
 
   return (
     <Container maxWidth="sm">
@@ -116,6 +132,12 @@ const LoanRepaymentForm = () => {
           Submit
         </Button>
       </Box>
+
+      <PaymentSlip
+        open={showSlip}
+        onClose={() => setShowSlip(false)}
+        formData={submittedData} // Pass the submitted data to the PaymentSlip component
+      />
     </Container>
   );
 };
