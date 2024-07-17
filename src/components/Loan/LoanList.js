@@ -97,6 +97,7 @@ const LoanList = () => {
                   <TableCell>First Amount</TableCell>
                   <TableCell>After Balance</TableCell>
                   <TableCell>Fee Amount</TableCell>
+                  <TableCell>Status</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -111,6 +112,7 @@ const LoanList = () => {
                     <TableCell>{loan.firstAmount}</TableCell>
                     <TableCell>{loan.afterBalance}</TableCell>
                     <TableCell>{loan.feeAmount ?? 'N/A'}</TableCell>
+                    <TableCell>{loan.status}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
