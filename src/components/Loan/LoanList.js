@@ -112,7 +112,13 @@ const LoanList = () => {
                     <TableCell>{loan.firstAmount}</TableCell>
                     <TableCell>{loan.afterBalance}</TableCell>
                     <TableCell>{loan.feeAmount ?? 'N/A'}</TableCell>
-                    <TableCell>{loan.status}</TableCell>
+                    <TableCell
+                      sx={{
+                        color: loan.status === 'Full Paid' ? 'red' : 'inherit',
+                      }}
+                    >
+                      {loan.status}
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
@@ -120,31 +126,30 @@ const LoanList = () => {
           </TableContainer>
           {/* Pagination controls */}
           <Box mt={3} sx={{ display: 'flex', justifyContent: 'center' }}>
-  <Pagination
-    count={totalPages}
-    page={page + 1} // Pagination component starts counting pages from 1
-    onChange={handlePageChange}
-    color="primary" // Set color to primary
-    size="large"
-    showFirstButton
-    showLastButton
-    sx={{
-      '& .Mui-selected': {
-        color: '#1976d2', // Blue text color for selected page
-        '&:hover': {
-          backgroundColor: 'transparent', // No background color on hover
-        },
-      },
-      '& .MuiPaginationItem-root': {
-        color: '#1976d2', // Blue text color for non-selected pages
-        '&:hover': {
-          backgroundColor: 'transparent', // No background color on hover
-        },
-      },
-    }}
-  />
-</Box>
-
+            <Pagination
+              count={totalPages}
+              page={page + 1} // Pagination component starts counting pages from 1
+              onChange={handlePageChange}
+              color="primary" // Set color to primary
+              size="large"
+              showFirstButton
+              showLastButton
+              sx={{
+                '& .Mui-selected': {
+                  color: '#1976d2', // Blue text color for selected page
+                  '&:hover': {
+                    backgroundColor: 'transparent', // No background color on hover
+                  },
+                },
+                '& .MuiPaginationItem-root': {
+                  color: '#1976d2', // Blue text color for non-selected pages
+                  '&:hover': {
+                    backgroundColor: 'transparent', // No background color on hover
+                  },
+                },
+              }}
+            />
+          </Box>
         </Box>
       </Container>
     </Box>
