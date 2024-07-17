@@ -23,7 +23,7 @@ const LoanScheduleGenerator = () => {
       // Replace with your actual token logic
       const token = localStorage.getItem('token');
       const userData = { loanId, startDate };
-      const data = await LoanService.registerShedule(userData, token); // Replace with your actual service call
+      const data = await LoanService.registerSchedule(userData, token); // Replace with your actual service call
       setLoanSchedule(data);
       setError(null);
     } catch (err) {

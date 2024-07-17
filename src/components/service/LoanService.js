@@ -2,7 +2,7 @@ import axios from 'axios';
 
 class LoanService {
   static BASE_URL = "https://sc-mfi.onrender.com";
- // static BASE_URL = 'http://localhost:1010';
+ //static BASE_URL = 'http://localhost:1010';
 
   static async registerSchedule(userData, token) {
     try {
