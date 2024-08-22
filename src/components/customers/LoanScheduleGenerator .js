@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './LoanSheduleGenerator.css'; // Assuming you have a CSS file for styling
-import LoanService from '../service/LoanService'; // Replace with your actual service import
+import LoanService from '../service/LoanService'; // Ensure this path is correct
 import * as XLSX from 'xlsx'; // Import xlsx library
 
 const LoanScheduleGenerator = () => {
@@ -20,10 +20,9 @@ const LoanScheduleGenerator = () => {
 
   const handleGenerateSchedule = async () => {
     try {
-      // Replace with your actual token logic
       const token = localStorage.getItem('token');
       const userData = { loanId, startDate };
-      const data = await LoanService.registerSchedule(userData, token); // Replace with your actual service call
+      const data = await LoanService.registerSchedule(userData, token);
       setLoanSchedule(data);
       setError(null);
     } catch (err) {
@@ -40,7 +39,7 @@ const LoanScheduleGenerator = () => {
 
     setTimeout(() => {
       window.print();
-    }, 500); // Adjust delay as needed
+    }, 500);
   };
 
   const handleExportToExcel = () => {

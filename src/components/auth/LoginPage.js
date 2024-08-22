@@ -18,7 +18,13 @@ function LoginPage() {
       if (userData.token) {
         localStorage.setItem("token", userData.token);
         localStorage.setItem("role", userData.role);
-        navigate("/profile1");
+
+        // Redirect based on user role
+        if (userData.role === "admin") {
+          navigate("/dashboard");
+        } else {
+          navigate("/profile1");
+        }
       } else {
         setError(userData.message);
       }
@@ -43,6 +49,7 @@ function LoginPage() {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
         </div>
         <div className="form-group">
@@ -51,6 +58,7 @@ function LoginPage() {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
         </div>
         <button type="submit">Login</button>
